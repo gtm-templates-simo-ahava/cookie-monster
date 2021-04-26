@@ -123,7 +123,7 @@ cookies.forEach(cookie => {
     secure: true
   };
   // Only set expiration if it's a positive integer
-  if (cookie.maxAge > 0) options['max-age'] = cookie.maxAge;
+  if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
   setCookie(name, value, options);
 });
 
