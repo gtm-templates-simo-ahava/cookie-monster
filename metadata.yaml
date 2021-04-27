@@ -1,6 +1,8 @@
 homepage: "https://www.simoahava.com/"
 versions:
   # Latest version
+  - sha: c157a535bf1604075218d2631985dd550777c411
+    changeNotes: Fix broken cookie expiration setting.
+  # Older versions
   - sha: 7f44670351e7484d16e9fdb5d45af8429f8f799d
     changeNotes: Initial release.
-  # Older versions
