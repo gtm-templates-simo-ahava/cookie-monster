@@ -99,16 +99,10 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "param": {
-          "type": "BOOLEAN",
+          "type": "CHECKBOX",
           "name": "httpOnly",
-          "displayName": "httpOnly",
-          "simpleValueType": true,
-          "defaultValue": false,
-          "valueValidators": [
-            {
-              "type": "NON_EMPTY"
-            }
-          ]
+          "checkboxText": "HttpOnly",
+          "simpleValueType": true
         },
         "isUnique": false
       }
@@ -139,7 +133,7 @@ cookies.forEach(cookie => {
   };
   // Only set expiration if it's a positive integer
   if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
-  if (cookie.httpOnly) options['HttpOnly'] = cookie.httpOnly;
+  if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
   setCookie(name, value, options);
 });
 
