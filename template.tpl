@@ -99,16 +99,10 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "param": {
-          "type": "BOOLEAN",
+          "type": "CHECKBOX",
           "name": "httpOnly",
-          "displayName": "httpOnly",
-          "simpleValueType": true,
-          "defaultValue": false,
-          "valueValidators": [
-            {
-              "type": "NON_EMPTY"
-            }
-          ]
+          "checkboxText": "HttpOnly",
+          "simpleValueType": true
         },
         "isUnique": false
       }
