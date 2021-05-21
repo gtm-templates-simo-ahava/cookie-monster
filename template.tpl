@@ -124,17 +124,19 @@ const cookies = data.cookies.length ? data.cookies : [];
 
 // Go through all the rows in the table and set each as a response cookie
 cookies.forEach(cookie => {
-  const name = cookie.name;
-  const value = cookie.value;
-  const options = {
-    domain: cookie.domain,
-    path: '/',
-    secure: true
-  };
-  // Only set expiration if it's a positive integer
-  if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
-  if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
-  setCookie(name, value, options);
+  if (!!cookie.value) {
+    const name = cookie.name;
+    const value = cookie.value;
+    const options = {
+      domain: cookie.domain,
+      path: '/',
+      secure: true
+    };
+    // Only set expiration if it's a positive integer
+    if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
+    if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
+    setCookie(name, value, options);
+  }
 });
 
 data.gtmOnSuccess();
