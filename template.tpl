@@ -110,6 +110,13 @@ ___TEMPLATE_PARAMETERS___
     "editRowTitle": "Edit Cookie",
     "newRowButtonText": "Add Cookie",
     "newRowTitle": "Add Cookie"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "noEncode",
+    "checkboxText": "Turn off cookie encoding",
+    "simpleValueType": true,
+    "help": "By default, cookies that are set by this tag are URL encoded (e.g. \u0027this value\u0027 will be turned into \u0027this%20value\u0027). If you want to disable this feature, tick this checkbox."
   }
 ]
 
@@ -135,7 +142,7 @@ cookies.forEach(cookie => {
     // Only set expiration if it's a positive integer
     if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
     if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
-    setCookie(name, value, options);
+    setCookie(name, value, options, data.noEncode);
   }
 });
 
