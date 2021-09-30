@@ -105,6 +105,16 @@ ___TEMPLATE_PARAMETERS___
           "simpleValueType": true
         },
         "isUnique": false
+      },
+      {
+        "param": {
+          "type": "CHECKBOX",
+          "name": "noEncode",
+          "checkboxText": "Not Encode",
+          "simpleValueType": true,
+          "help": "If checked, the cookie value will not be encoded."
+        },
+        "isUnique": false
       }
     ],
     "editRowTitle": "Edit Cookie",
@@ -134,7 +144,7 @@ cookies.forEach(cookie => {
   // Only set expiration if it's a positive integer
   if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
   if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
-  setCookie(name, value, options);
+  setCookie(name, value, options, cookie.noEncode);
 });
 
 data.gtmOnSuccess();
