@@ -119,6 +119,13 @@ ___SANDBOXED_JS_FOR_SERVER___
 // Load template APIs
 const setCookie = require('setCookie');
 
+// Cookies array exist check
+if (!data.cookies) {
+  data.gtmOnSuccess();
+
+  return;
+}
+
 // Create reference to param table
 const cookies = data.cookies.length ? data.cookies : [];
 
