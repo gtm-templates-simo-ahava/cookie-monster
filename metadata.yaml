@@ -1,10 +1,12 @@
 homepage: "https://www.simoahava.com/"
+documentation: "https://www.simoahava.com/custom-templates/cookie-monster/"
 versions:
   # Latest version
-  # Latest version
+  - sha: 5050625260cd059b95007be8d54e4e6b7b2b1417
+    changeNotes: Add support for setting empty values. Add support for noEncode of cookie value.
+  # Older versions
   - sha: d43db1d8368a109bc1b3fcb532b4780b7529ba66
     changeNotes: Fix HttpOnly values.
-  # Older versions
   - sha: e63f8d3b68591494d6515a55bc1f33b6bcc0f8c1
     changeNotes: Add HttpOnly option.
   - sha: c157a535bf1604075218d2631985dd550777c411
