@@ -101,6 +101,30 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "param": {
+          "type": "SELECT",
+          "name": "sameSite",
+          "displayName": "SameSite",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "lax",
+              "displayValue": "lax"
+            },
+            {
+              "value": "strict",
+              "displayValue": "strict"
+            },
+            {
+              "value": "none",
+              "displayValue": "none"
+            }
+          ],
+          "simpleValueType": true
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
           "type": "CHECKBOX",
           "name": "httpOnly",
           "checkboxText": "HttpOnly",
@@ -112,8 +136,9 @@ ___TEMPLATE_PARAMETERS___
         "param": {
           "type": "CHECKBOX",
           "name": "setEmpty",
-          "checkboxText": "Set cookie even if value is an empty string",
-          "simpleValueType": true
+          "checkboxText": "Always set cookie",
+          "simpleValueType": true,
+          "help": "Check this box to set the cookie even if the value is an empty string."
         },
         "isUnique": false
       },
@@ -150,7 +175,8 @@ cookies.forEach(cookie => {
   const options = {
     domain: cookie.domain,
     path: '/',
-    secure: true
+    secure: true,
+    sameSite: cookie.sameSite
   };
   // Only set expiration if it's a positive integer
   if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
