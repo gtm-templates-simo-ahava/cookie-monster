@@ -58,13 +58,7 @@ ___TEMPLATE_PARAMETERS___
           "name": "value",
           "displayName": "Value",
           "simpleValueType": true,
-          "valueValidators": [
-            {
-              "type": "NON_EMPTY",
-              "enablingConditions": [],
-              "errorMessage": ""
-            }
-          ]
+          "valueValidators": []
         },
         "isUnique": false
       },
@@ -77,10 +71,11 @@ ___TEMPLATE_PARAMETERS___
           "defaultValue": 1800,
           "valueValidators": [
             {
-              "type": "NON_NEGATIVE_NUMBER"
+              "type": "NUMBER"
             }
           ],
-          "valueUnit": "seconds (0 for session cookie)"
+          "valueUnit": "seconds",
+          "help": "The number of seconds until the cookie expires. Use a zero for a session cookie or a negative number to expire the cookie immediately."
         },
         "isUnique": false
       },
@@ -178,8 +173,8 @@ cookies.forEach(cookie => {
     secure: true,
     sameSite: cookie.sameSite
   };
-  // Only set expiration if it's a positive integer
-  if (cookie.expiration > 0) options['max-age'] = cookie.expiration;
+  // Only set expiration if it doesn't equal zero
+  if (cookie.expiration != 0) options['max-age'] = cookie.expiration;
   if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
   // Only set cookie if value is valid, or if value is empty and the relevant setting is checked
   if (cookie.value || (cookie.value === '' && cookie.setEmpty)) {
