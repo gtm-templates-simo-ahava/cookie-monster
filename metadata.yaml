@@ -2,9 +2,11 @@ homepage: "https://www.simoahava.com/"
 documentation: "https://www.simoahava.com/custom-templates/cookie-monster/"
 versions:
   # Latest version
+  - sha: 1c84c0400083090e69406e3a2fa4b895c578104c
+    changeNotes: Allow empty value for expiration to set session cookies.
+  # Older versions
   - sha: 7f0abba17170455ea6009f2fc6bc157f89788fa0
     changeNotes: Make it possible to delete the cookie or to set a session cookie.
-  # Older versions
   - sha: 37ba0d5313ebbe764eb1209ce6000d31b1fbb81d
     changeNotes: Add option for SameSite, and configure template to set SameSite=Lax by default.
   - sha: 5050625260cd059b95007be8d54e4e6b7b2b1417
