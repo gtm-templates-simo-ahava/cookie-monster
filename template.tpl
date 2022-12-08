@@ -183,7 +183,7 @@ cookies.forEach(cookie => {
     sameSite: cookie.sameSite
   };
   // Only set max-age if expiration is 0 or a positive integer
-  if (cookie.expiration >= 0) options['max-age'] = cookie.expiration;
+  if (cookie.expiration !== '') options['max-age'] = cookie.expiration;
   if (cookie.httpOnly) options.HttpOnly = cookie.httpOnly;
   // Only set cookie if value is valid, or if value is empty and the relevant setting is checked
   if (cookie.value || (cookie.value === '' && cookie.setEmpty)) {
